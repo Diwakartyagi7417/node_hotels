@@ -1,10 +1,22 @@
 // const mongoose = require('mongoose');
 import mongoose from 'mongoose';
+// import dotenv from 'dotenv';
+// dotenv.config();
+// require('dotenv').config();
+
+
 //Define the MongoDB connection URL
-//  const MongoURL =  'mongodb://localhost:27017/hotels' //Replace 'mydatabase' with your database name
- const MongoURL =  'mongodb+srv://diwakartyagi7417:Diwakar123@hotel.wpcbg.mongodb.net/'
+//  const MongoURL =  'process.env.MONGODB_URL_LOCAL' //Replace 'mydatabase' with your database name
+//  const MongoURL =  'mongodb+srv://diwakartyagi7417:Diwakar123@hotel.wpcbg.mongodb.net/'
+
+import { config } from 'dotenv'; 
+config(); 
+
+const MongoURL = process.env.MONGODB_URL_LOCAL
+console.log(MongoURL);
+
   //set up MongoDB connection
-  mongoose.connect(MongoURL,{
+  mongoose.connect(MongoURL ,{
     useNewUrlParser:true,
     useUnifiedTopology:true
   })
